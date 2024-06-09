@@ -1,0 +1,12 @@
+
+.DS_Store
+/Core/Clean-Architecture.Core.Application/obj
+/Core/Clean-Architecture.Core.Domain/bin
+/Core/Clean-Architecture.Core.Application/bin
+/Core/Clean-Architecture.Core.Domain/obj
+/Infrastructure/Clean-Architecture.Infrastructure.Data/bin
+/Infrastructure/Clean-Architecture.Infrastructure.Data/obj
+/Infrastructure/Clean-Architecture.Infrastructure.Identity/obj
+/Presentation/Clean-Architecture.WebApi/bin
+/Presentation/Clean-Architecture.WebApi/obj
+/Infrastructure/Clean-Architecture.Infrastructure.Identity/bin
