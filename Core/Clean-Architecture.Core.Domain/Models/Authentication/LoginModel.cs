@@ -1,13 +1,16 @@
-using FluentValidation;
-namespace Clean_Architecture.WepApi.Dto;
 
-public record class UserLoginDto
+using FluentValidation;
+
+namespace Clean_Architecture.Core.Domain.Models;
+
+public record class LoginModel
 {
     public string UserName { get; init; }
-    public string Password { get; init; }
+    public string Password { get; set; }
+
 }
 
-public class UserLoginDtoValidator : AbstractValidator<UserLoginDto>
+public class UserLoginDtoValidator : AbstractValidator<LoginModel>
 {
     public UserLoginDtoValidator()
     {

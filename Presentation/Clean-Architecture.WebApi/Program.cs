@@ -1,6 +1,5 @@
 using Clean_Architecture.Infrastructure.Data;
 using Clean_Architecture.Infrastructure.Identity;
-using Clean_Architecture.WepApi.Dto;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Clean_Architecture.Core.Application;
 using Clean_Architecture.Core.Application.Queries;
+using Clean_Architecture.Core.Domain.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,10 +38,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/token", async (SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IValidator<UserLoginDto> validator, [FromBody] UserLoginDto loginDto) =>
+app.MapPost("/api/token", async (SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IValidator<LoginModel> validator, [FromBody] LoginModel loginModel) =>
 {
 
-    var validationResult = await validator.ValidateAsync(loginDto);
+    var validationResult = await validator.ValidateAsync(loginModel);
     if (!validationResult.IsValid)
     {
         return Results.BadRequest(validationResult.Errors);
