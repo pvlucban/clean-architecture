@@ -28,19 +28,11 @@ public class ApplicationDBContext : DbContext
         modelBuilder.Entity<Company>().ToTable("Companies", "Common");
         modelBuilder.Entity<Company>().Property(a => a.Name).HasMaxLength(200);
         modelBuilder.Entity<Company>().Property(a => a.Id).HasValueGenerator<GuidValueGenerator>();
-        ConfigureWithAuditBaseEntity<Company>(modelBuilder);
     }
 
     private void ConfigureAccountsEntity(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>().ToTable("Accounts", "Accounting");
         modelBuilder.Entity<Account>().Property(a => a.Id).UseIdentityAlwaysColumn();
-        ConfigureWithAuditBaseEntity<Account>(modelBuilder);
-    }
-
-    private void ConfigureWithAuditBaseEntity<T>(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity(typeof(T)).Property("CreatedBy").HasMaxLength(100);
-        modelBuilder.Entity(typeof(T)).Property("UpdatedBy").HasMaxLength(100);
     }
 }

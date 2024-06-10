@@ -2,7 +2,7 @@
 
 namespace Clean_Architecture.Core.Domain;
 
-public sealed class Account : WithAuditBaseEntity<int>
+public sealed class Account : WithCompanyBaseEntity<int>
 {
 
 }

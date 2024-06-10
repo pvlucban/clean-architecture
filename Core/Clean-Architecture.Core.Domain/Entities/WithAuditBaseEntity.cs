@@ -11,7 +11,7 @@ public class WithAuditBaseEntity<T> : BaseEntity<T>
     public string? UpdatedBy { get; set; }
 
     public required DateTime CreatedDate { get; set; }
-    public DateTime UpdatedDate { get; set; }
+    public DateTime? UpdatedDate { get; set; }
 
     public int Version { get; set; }
 
